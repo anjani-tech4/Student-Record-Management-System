@@ -1,0 +1,1 @@
+javac -d C:\java\app1\dl2\classes -classpath C:\java\app1\datalayer_interfaces\dist\*;C:\java\app1\dl2\classes;. *.java

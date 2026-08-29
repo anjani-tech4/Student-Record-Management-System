@@ -1,0 +1,1 @@
+javac -classpath C:\java\app1\pl2\dependencies\*;C:\java\app1\pl2\classes;. -d c:\java\app1\pl2\classes *.java

@@ -1,0 +1,1 @@
+javac -classpath C:\java\app1\presentation-layer\classes;C:\java\app1\presentation-layer\dependencies\*;. *.java
