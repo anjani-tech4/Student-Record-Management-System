@@ -73,20 +73,11 @@ private JButton deleteButton;
 private JButton cancelButton;
 private JButton pdfButton;
 
-
-
-//------------------------------------------
 public StudentUI()
 {
 super("Student Management");
 this.studentTableModel=new StudentTableModel();
 this.table=new JTable(this.studentTableModel);
-
-
-//1.next kyaa? 
-// ans:  Font size .
-
-// 2. next panel
 
 JScrollPane scrollPane=new JScrollPane(table,ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 this.container=this.getContentPane();
@@ -485,8 +476,6 @@ Block all pasted alphabets → DocumentFilter.
     }
 }
 });
-
-//-------------------------------4 July'26 ends----------------------------
 
 this.searchTextField.getDocument().addDocumentListener(new DocumentListener(){
 public void searchTextChanged()
