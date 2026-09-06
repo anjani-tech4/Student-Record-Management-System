@@ -111,16 +111,56 @@ throw new ModelException(dlException.getMessage());
 }
 }
 
-
-
 public void updateStudent(Student student)
 {
-
+StudentDAOInterface studentDAOInterface;
+studentDAOInterface = new StudentDAO();
+try
+{
+StudentDTOInterface studentDTOInterface;
+studentDTOInterface = new StudentDTO(
+student.getRollNumber(),
+student.getName(),
+student.getGender().charAt(0)
+ );
+studentDAOInterface.update(studentDTOInterface);
+Student oldStudent = this.rollNumberMap.get(student.getRollNumber());
+if(oldStudent != null)
+{
+oldStudent.setName(student.getName());
+oldStudent.setGender(student.getGender());
+}
+Collections.sort(this.students, (left, right) -> {
+return left.getName().compareToIgnoreCase(right.getName());
+});
+this.fireTableDataChanged();
+}
+catch(DLException dlException)
+{
+throw new RuntimeException(dlException.getMessage());
+}
 }
 public void removeStudent(int rollNumber)
 {
-
+StudentDAOInterface studentDAOInterface;
+studentDAOInterface = new StudentDAO();
+try
+{
+studentDAOInterface.deleteByRollNumber(rollNumber);
+student = this.rollNumberMap.get(rollNumber);
+if(student != null)
+{
+this.students.remove(student);
+this.rollNumberMap.remove(rollNumber);
 }
+this.fireTableDataChanged();
+}
+catch(DLException dlException)
+{
+throw new RuntimeException(dlException.getMessage());
+}
+}
+
 public int searchStudentByRollNumber(int rollNumber)
 {
 int idx=0;

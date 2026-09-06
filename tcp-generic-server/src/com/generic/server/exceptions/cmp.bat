@@ -1,1 +1,0 @@
-javac -d c:\java\app1\tcp-generic-server\classes -classpath c:java\app1\tcp-generic-server\classes;. *.java
